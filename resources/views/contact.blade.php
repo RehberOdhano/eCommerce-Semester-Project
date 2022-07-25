@@ -1,9 +1,9 @@
-<?php 
+<?php
 use App\Http\Controllers\ProductController;
 Session();
 $totalItems = 0;
-if(Session()->has('user')) {
-  $totalItems = ProductController::itemsInCart(); 
+if (Session()->has('user')) {
+    $totalItems = ProductController::itemsInCart();
 }
 ?>
 
@@ -13,10 +13,10 @@ if(Session()->has('user')) {
 
 @section('content')
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/contact-us.css">
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXpomORdt6ber29k8tzk_oIPxQAWaVMBE&callback=myMap"></script>
-  
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/contact-us.css">
+    <script src="https://maps.googleapis.com/maps/api/js?{{ env('API_KEY') }}&callback=myMap"></script>
+
 @endsection
 
 <body>
@@ -48,18 +48,19 @@ if(Session()->has('user')) {
                             <a class="nav-link" href="/contact">Contact</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link cart-count" href="/cart">
-                            @if($totalItems == 0)
-                            Cart <span></span>  
-                            @else
-                            Cart <span class= "badge bg-danger">{{$totalItems}}</span>
-                            @endif
-                        </a>
+                            <a class="nav-link cart-count" href="/cart">
+                                @if ($totalItems == 0)
+                                    Cart <span></span>
+                                @else
+                                    Cart <span class="badge bg-danger">{{ $totalItems }}</span>
+                                @endif
+                            </a>
                         </li>
-                        @if(Session()->has('user'))
+                        @if (Session()->has('user'))
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{Session()->get('user')['first_name'] . " " . Session()->get('user')['last_name']}}
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Session()->get('user')['first_name'] . ' ' . Session()->get('user')['last_name'] }}
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <li class="my_nav_item">
@@ -72,7 +73,7 @@ if(Session()->has('user')) {
                             </li>
                         @else
                             <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
+                                <a class="nav-link" href="/login">Login</a>
                             </li>
                         @endif
                     </ul>
@@ -86,7 +87,7 @@ if(Session()->has('user')) {
     <section class="white-section">
 
         <div class="container">
-    
+
             <div class="contact-form">
                 <h1 class="title">Contact Us</h1>
                 <h2 class="subtitle">If you've any query, then don't hesitate to contact us.</h2>
@@ -97,26 +98,26 @@ if(Session()->has('user')) {
                     <input type="text" name="name" placeholder="Your Name" onkeyup="validate(this)">
                     <input type="email" name="email" placeholder="Your E-mail Adress" onkeyup="validate(this)">
                     <input type="tel" name="phone" placeholder="Your Phone Number" onkeyup="validate(this)">
-                    
+
                     <textarea name="text" id="message" rows="8" placeholder="Your Message"></textarea>
                     <p id="num_of_chars"> out of 150</p>
                     <button class="btn btn-primary btn-send" type="submit">Send Message</button>
                 </form>
-                
+
             </div>
 
         </div>
 
         <div class="container-fluid">
-            {{--  <div class="map">
+            {{-- <div class="map">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.20590545812!2d73.15440461466193!3d33.65182628071686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfea4aee5bdf8f%3A0xe6b55e05d462beb1!2sCOMSATS%20University%20Islamabad!5e0!3m2!1sen!2s!4v1622454855994!5m2!1sen!2s"
                     width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen>
                 </iframe>
-            </div>  --}}
+            </div> --}}
             <div id="googleMap" style="width:100%; height:700px;"></div>
         </div>
-        
+
     </section>
 
     <!-- Footer -->
@@ -147,8 +148,8 @@ if(Session()->has('user')) {
 
     </footer>
 
-    <script src="{{asset('/js/contact.js')}}"></script>
-    <script src="{{asset('/js/map_api.js')}}"></script>
+    <script src="{{ asset('/js/contact.js') }}"></script>
+    <script src="{{ asset('/js/map_api.js') }}"></script>
 </body>
 
 </html>
