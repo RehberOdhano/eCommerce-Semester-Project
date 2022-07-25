@@ -212,6 +212,10 @@ input{
 
 @media (max-width: 1028px) {
 
+    #googleMap {
+        margin-top: 50px;
+    }
+
     .brand {
         font-size: 2.2rem;
     }

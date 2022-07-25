@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Cart;
 use App\Models\Order;
-use App\Models\NewProducts;
+// use App\Models\NewProducts;
 use Illuminate\Support\Facades\DB;
 
 // using the session
@@ -23,7 +23,7 @@ class ProductController extends Controller
         // return Products::all();
 
         // getting the data from the database
-        $productData = NewProducts::where('id', '<=', 6)->get();
+        $productData = Products::where('id', '<=', 7)->get();
 
         // passing that data as an array and we'll use this array
         // in our view and the products will be added dynamically
@@ -32,7 +32,7 @@ class ProductController extends Controller
     }
 
     function ProductsForProductsPage() {
-        $productData = NewProducts::where('id', '>', 6)->get();
+        $productData = Products::where('id', '>=', 1)->get();
         return view('products', ['products' => $productData]);
     }
 

@@ -15,7 +15,7 @@ function validate(field) {
 
 let textArea = document.getElementById("message");
 
-textArea.onkeypress = function (event) {
+textArea.onkeypress = function(event) {
     let message_length = textArea.value.length;
     let counter = document.getElementById("num_of_chars");
 

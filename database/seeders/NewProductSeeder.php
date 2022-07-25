@@ -15,11 +15,11 @@ class NewProductSeeder extends Seeder
     public function run()
     {
         DB::table('new_products')->insert([
-            'name'=>'Adata 1TB HD710',
+            'name'=>'Lens',
             'price'=>'10',
             'description'=>'Lorem Ipsum Lorem Ipsum Lorem',
             'quantity'=>'25',
-            'image'=> '/images/product6.png'
+            'image'=> '/images/p4.png'
         ]);
     }
 }

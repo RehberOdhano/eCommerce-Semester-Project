@@ -15,11 +15,11 @@ class ProductSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'name'=>'HI-BOT drone',
+            'name'=>'Camera-II',
             'price'=>'10',
             'description'=>'Lorem Ipsum Lorem Ipsum Lorem',
             'quantity'=>'25',
-            'image'=> '/images/p4.png'
+            'image'=> '/images/p9.png'
         ]);
     }
 }

@@ -15,6 +15,7 @@ if(Session()->has('user')) {
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/contact-us.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXpomORdt6ber29k8tzk_oIPxQAWaVMBE&callback=myMap"></script>
   
 @endsection
 
@@ -107,12 +108,13 @@ if(Session()->has('user')) {
         </div>
 
         <div class="container-fluid">
-            <div class="map">
+            {{--  <div class="map">
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3321.20590545812!2d73.15440461466193!3d33.65182628071686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfea4aee5bdf8f%3A0xe6b55e05d462beb1!2sCOMSATS%20University%20Islamabad!5e0!3m2!1sen!2s!4v1622454855994!5m2!1sen!2s"
                     width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen>
                 </iframe>
-            </div>
+            </div>  --}}
+            <div id="googleMap" style="width:100%; height:700px;"></div>
         </div>
         
     </section>
@@ -141,12 +143,12 @@ if(Session()->has('user')) {
             </span>
 
             <br><br><br>
-            <p>© Copyright 2021 Made with <i class="fas fa-heart fa-2x icon-3"></i> by Rehber Odhano</p>
         </div>
 
     </footer>
 
     <script src="{{asset('/js/contact.js')}}"></script>
+    <script src="{{asset('/js/map_api.js')}}"></script>
 </body>
 
 </html>
